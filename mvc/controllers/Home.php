@@ -7,11 +7,17 @@ class Home extends Controller{
     }
 
     function Show($a, $b){
+
+        // model
         $teo = $this->model("SinhVienModel");
         $tong = $teo->Tong($a, $b);
+
+        // view
         $this->view("aodep", [
+            "Page" => "news",
             "Number" => $tong,
             "Mau"   => "red",
+            "SV" => $teo->SinhVien(),
         ]);
     }
 }
